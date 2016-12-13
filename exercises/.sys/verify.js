@@ -16,7 +16,7 @@ var dn = __dirname;
 var format = require("util").format;
 
 exports = module.exports = function(path) {
-  exports.test(path + "/.test.js", passFail);
+  exports.test(path + "/_test.js", passFail);
 }
 
 exports.test = function(testFile, handler) {
@@ -38,10 +38,10 @@ function passFail(error, stdout, stderr) {
 
 exports.tdd = function(path) {
   if(process.env.SPECIMIN) {
-    exports.test(path + "/.test", exports.passFail);
+    exports.test(path + "/_test", exports.passFail);
   } else {
     exports.test(path + "/start-here", function(error, stdout, stderr) {
-      exports.test(path + "/.test", function(errorBase, stdoutBase, stderrBase) {
+      exports.test(path + "/_test", function(errorBase, stdoutBase, stderrBase) {
         if(error || errorBase) {
           console.log("Exercise incomplete:");
         } else {
