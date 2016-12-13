@@ -8,7 +8,7 @@
     "slides": "slides/tools/build-template.sh slides/src < slides/index.template.md > slides/index.html",
     "slides:dev": "node_modules/.bin/watch 'npm run slides' slides"
   },
-  "author": "Tim Ruffles <oi@truffles.me.uk>",
+  "author": "Arturo Zarzalejo <arturoazh@gmail.com>",
   "license": "©",
   "dependencies": {
     "babel-preset-es2015": "^6.3.13",
