@@ -33,7 +33,7 @@ function scenarioOne() {
   }
 }
 
-ANSWERS.scenarioOne = "inner";
+ANSWERS.scenarioOne = "TODO";
 
 
 
@@ -51,7 +51,7 @@ function scenarioTwo() {
 
 }
 
-ANSWERS.scenarioTwo = "out";
+ANSWERS.scenarioTwo = "TODO";
 
 
 
@@ -77,7 +77,7 @@ function scenarioThree() {
 
 }
 
-ANSWERS.scenarioThree = "helper";
+ANSWERS.scenarioThree = "TODO";
 
 
 
@@ -93,7 +93,7 @@ function scenarioFour() {
 
 }
 
-ANSWERS.scenarioFour = "outer";
+ANSWERS.scenarioFour = "TODO";
 
 
 
@@ -109,7 +109,7 @@ function scenarioFive() {
   return A;
 }
 
-ANSWERS.scenarioFive = "inner";
+ANSWERS.scenarioFive = "TODO";
 
 
 
@@ -126,7 +126,7 @@ function scenarioSix() {
   }
 }
 
-ANSWERS.scenarioSix = 10;
+ANSWERS.scenarioSix = "TODO";
 
 
 
@@ -157,9 +157,7 @@ function scenarioSeven() {
   }
 }
 
-
-
-ANSWERS.scenarioSeven = 6;
+ANSWERS.scenarioSeven = "TODO";
 
 
 

@@ -9,18 +9,10 @@
 //
 exports.getCount = function(incoming) {
 
-	var newMap = new Map;
-
   incoming(function(event) {
-  	;
-  	if (!newMap.has(event)) {
-  		newMap.set(event, 0);
-  	}
-  	newMap.set(event, newMap.get(event)+1);
-  	// console.log('event', event);
 
     // TODO
-    return newMap.get(event);
+    return 0;
   })
   
 };

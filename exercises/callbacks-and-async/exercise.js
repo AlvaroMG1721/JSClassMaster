@@ -45,47 +45,14 @@
 //
 exports.sampleQueries = function(queryStream, n, cb) {
 
-	const queries = [];
-	const endTimes = new Map;
-	const startTimes = new Map;
-	const durations = [];
-
   queryStream.on("query", queryHandler);
 
   function queryHandler(query, time) {
-  	if (queries.length >= n) {
-  		return;
-  	};
-
-  	queries.push(query);
-  	startTimes.set(query.id, time);
-
     console.log(`start id:${query.id} time:${time}`);
 
-    query.on("end", (endTime) => endHandler(query, endTime));
-
-    function endHandler (query, time) {
-
-    	console.log(`end id:${query.id} time:${time}`);
-
-    	if (endTimes.has(query.id)) {
-      	cb(Error("hard duplicate end for query"));
-      }else {
-      	endTimes.set(query.id, time);
-      	const duration = time - startTimes.get(query.id);
-      	durations.set(query.id, duration);
-
-      };
-    }
-
-    function endTime () {
-  	  if (durations.size === n) {
-    		cb({
-    			durations: queries.map((q) => durations.get(q.id)),
-    			queries: queries
-    		})
-    	};
-    }
+    query.on("end", function(time) {
+      console.log(`end id:${query.id} time:${time}`);
+    });
   }
 }
 

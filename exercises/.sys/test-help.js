@@ -20,7 +20,6 @@ exports.importAndTest = function(path, runner) {
 }
 
 exports.rint = function rint(n) {
-  console.log(Math.random() * (n || 100) | 0);
   return Math.random() * (n || 100) | 0;
 }
 

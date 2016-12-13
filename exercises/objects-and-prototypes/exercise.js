@@ -13,19 +13,6 @@
 //
 //
 function BankAccount(balance) {
-	// console.log('BALANCE', balance);
-	var bal = balance;
-	return {
-		balance: function (n) {
-			return bal;
-		},
-		deposit: function (n) {
-			if (bal <= 0) {
-				console.log('this')
-				throws new Error('lasfasf');
-			}
-		}
-	}
 }
 
 exports.BankAccount = BankAccount;
