@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+
+<section>
+	<span> [[ scope.valor1 ]] </span>
+</section>
+<body>
+	<script src="js/core.js"></script>
+	<script src="js/promise.js"></script>
+	<script src="js/utils.js"></script>
+	<script src="js/service.js"></script>
+	<script src="js/app.js"></script>
+
+	</script>
+
+	<script>
+	// (function(){
+	// 	'use strict';
+	// 	var obj = {
+	// 		a:1,
+	// 		a:2,
+	// 	}
+	//
+	// }());
+
+	var Utils = (function () {
+
+		function Utils() {
+
+		}
+
+		Utils.prototype = {
+			loadKey: function(){
+					if(arguments[0] === undefined || arguments[1] === undefined){
+							console.error("utils.loadKey ERROR: You need to provide two arguments utils.loadKey(keyRoute, scope)", arguments);
+							return '';
+					}
+					var scope = arguments[1];
+					var keyRoute = arguments[0];
+					if(typeof arguments[0] == 'string'){
+							var keyRoute = [arguments[0]];
+							if(~arguments[0].indexOf('.')) keyRoute = arguments[0].split('.');
+					}
+
+					if(scope[keyRoute[0]] === undefined){
+							console.error("Key "+keyRoute[0]+" is undefined in the object ", scope);
+							return '';
+					}else if(keyRoute.length === 1){
+							return scope[keyRoute[0]];
+					}else{
+							scope = scope[keyRoute[0]];
+							keyRoute.shift();
+							return this.loadKey(keyRoute, scope);
+					}
+			},
+			compile : function () {
+				var str = arguments[0];
+				var scope = arguments[1];
+
+				console.log(arguments);
+
+				var parse = str.innerHTML.trim();
+
+				var reg = /\[\[(.*?)\]\]/g;
+				parse = reg.exec(parse)[1].trim();
+				console.log(this.loadKey(parse, scope));
+				str.innerHTML = this.loadKey(parse, scope);
+
+			}
+		}
+
+		return Utils;
+	}());
+
+	var utils = new Utils();
+	var obj = {
+		scope: {
+			valor1: 'Javascript Class'
+		}
+	}
+	utils.compile(document.querySelector('section'), obj);
+
+
+
+
+
+
+
+
+
+	function comprobar(param1, param2) {
+		var obj = {
+			otroobj: {
+				// fn : function () {
+				// 	console.log('works');
+				// }
+			}
+		}
+
+		obj && obj.otroobj && obj.otroobj.fn && obj.otroobj.fn();
+
+
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	</script>
+</body>
+</html>
