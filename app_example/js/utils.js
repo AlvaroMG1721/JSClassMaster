@@ -109,7 +109,7 @@ var Utils = (function(){
             }
             var html = arguments[0];
             var scope = arguments[1];
-            var regEx = /\[\[(.*?)\]\]/g;
+            var regEx = /\[\[(.*?[\s\S])\]\]/g;
             var value = '';
 
             while((betweenBrackets = regEx.exec(html)) !== null) {
